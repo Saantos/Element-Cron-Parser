@@ -14,7 +14,7 @@
 
 To supply your own test input, run the following command after adding your test input file in the root of the project.
 
-`cat <inputFile> | swift run Cron <simulatedTime>`
+- `cat <inputFile> | swift run Cron <simulatedTime>`
     - inputFile is the file containing the information for the cron parser
     - simulatedTime is the simulated time to run the cron parser in format **HH:mm**
     
