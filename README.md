@@ -12,7 +12,7 @@
 - To run with the default input test file i've supplied
     - `cat input.txt | swift run Cron 16:10`
 
-- To supply your own test input, run the following command after adding your test input file in the root of the project.
+To supply your own test input, run the following command after adding your test input file in the root of the project.
 
 `cat <inputFile> | swift run Cron <simulatedTime>`
     - inputFile is the file containing the information for the cron parser
