@@ -13,19 +13,13 @@ struct Cron: ParsableCommand {
         print(job)
     }
     
-    /// Create CronJob by creating CronTasks and adding to Job
+    /// Create CronJob by creating CronTasks by reading standard input and adding to Job
     /// return job
     private func createJobFromStandardInput(time: Date) -> CronJob {
-        let input = FileHandle.standardInput
-        guard let inputText = String(bytes: input.availableData, encoding: .utf8) else {
-            fatalError("No input")
-        }
-
-        let tasksComponents = inputText.components(separatedBy: .newlines)
-        
         var job = CronJob(simulatedTime: time)
-        for task in tasksComponents {
-            let components = task.components(separatedBy: .whitespaces)
+        
+        while let input = readLine() {
+            let components = input.components(separatedBy: .whitespaces)
             let t = Task(minute: TaskValue.convertToValue(components[0]) , hour: TaskValue.convertToValue(components[1]), name: components[2])
             job.addTask(t)
         }
