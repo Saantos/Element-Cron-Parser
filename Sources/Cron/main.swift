@@ -20,8 +20,8 @@ struct Cron: ParsableCommand {
         
         while let input = readLine() {
             let components = input.components(separatedBy: .whitespaces)
-            let t = Task(minute: TaskValue.convertToValue(components[0]) , hour: TaskValue.convertToValue(components[1]), name: components[2])
-            job.addTask(t)
+            let task = Task(minute: TaskValue.convertToValue(components[0]) , hour: TaskValue.convertToValue(components[1]), name: components[2])
+            job.addTask(task)
         }
         
         return job
